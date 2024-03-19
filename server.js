@@ -1,15 +1,28 @@
 /********************************************************************************
-*  WEB322 – Assignment 03
-* 
-*  I declare that this assignment is my own work in accordance with Seneca's
-*  Academic Integrity Policy:
-* 
-*  https://www.senecacollege.ca/about/policies/academic-integrity-policy.html
-* 
-*  Name: ____SURYANSH__________Student ID: __138004239_________Date: _____18-03-2024_________
-*
-********************************************************************************/
 
+* WEB322 – Assignment 03
+
+* 
+
+* I declare that this assignment is my own work in accordance with Seneca's
+
+* Academic Integrity Policy:
+
+* 
+
+* https://www.senecacollege.ca/about/policies/academic-integrity-policy.html
+
+* 
+
+* Name: ______SURYANSH________________ Student ID: ____138004239__________ Date: ___18-03-2024___________
+
+*
+
+* Published URL: ___________https://tan-hermit-crab-yoke.cyclic.app________________________________________________
+
+*
+
+********************************************************************************/
 
 
 const express = require('express');
