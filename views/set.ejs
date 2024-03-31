@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/main.css">
+    <title><%= set.name %> - LEGO Set</title>
+</head>
+<body>
+    <%- include('partials/navbar', { page: '' }) %>
+
+    <div class="hero min-h-screen" style="background-image: url('<%= set.img_url %>');">
+        <div class="hero-overlay bg-opacity-60"></div>
+        <div class="hero-content text-center text-neutral-content">
+            <div class="max-w-md">
+                <h1 class="text-5xl font-bold"><%= set.name %></h1>
+                <p>Below, you will find detailed information about the set: <%= set.name %></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mx-auto p-5">
+        <img src="<%= set.img_url %>" alt="<%= set.name %>" class="block mx-auto"/>
+        <div class="text-center mt-4">
+            <h2 class="text-3xl font-bold"><%= set.name %></h2>
+            <p>Year: <%= set.year %></p>
+            <p>Theme: <%= set.theme %></p>
+            <p>Number of Parts: <%= set.num_parts %></p>
+            <div id="quote"></div>
+            <a href="#" onclick="history.back(); return false;" class="btn btn-primary">Back</a>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            fetch('https://quotable.io/random')
+                .then(response => response.json())
+                .then(data => {
+                    const quoteElement = document.getElementById('quote');
+                    quoteElement.innerHTML = `<p>${data.content}</p><p>- ${data.author}</p>`;
+                })
+                .catch(error => console.log('Error fetching quote:', error));
+        });
+    </script>
+</body>
+</html>

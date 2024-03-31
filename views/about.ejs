@@ -8,34 +8,7 @@
     
 </head>
 <body>
-    <div class="navbar bg-base-100">
-        <div class="flex-1">
-            <a href="/" class="btn btn-ghost normal-case text-xl">Lego Collections</a>
-        </div>
-        <div class="navbar-center flex">
-            <ul class="menu menu-horizontal px-1">
-                <li><a class="active" href="/about">About</a></li>
-                <summary>THEMES</summary>
-                <details>
-                    <summary>
-                        THEMES
-
-                    </summary>
-                    <ul class="p-2 bg-base-100 right-0">
-                        <li>
-                            <a href="/lego/sets?theme=City">City</a>
-                        </li>
-                        <li>
-                            <a href="/lego/sets?theme=Space">Space</a>
-                        </li>
-                        <li>
-                            <a href="/lego/sets?theme=Castle">Castle</a>
-                        </li>
-                    </ul>
-                </details>
-            </ul>
-        </div>
-    </div>
+    <%- include('partials/navbar', { page: '/about' }) %>
     
     <div class="hero min-h-screen bg-base-200">
         <div class="hero-content text-center">

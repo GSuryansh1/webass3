@@ -28,8 +28,9 @@
 const express = require('express');
 const path = require('path');
 const legoData = require('./modules/legoSets');
-
 const app = express();
+app.set('view engine','ejs');
+
 const PORT = process.env.PORT || 8080;
 
 app.use(express.static('public'));
@@ -45,17 +46,17 @@ legoData.initialize().then(() => {
 });
 
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, '/views/home.html'));
+    res.render("home");
 });
 
 app.get('/about', (req, res) => {
-    res.sendFile(path.join(__dirname, '/views/about.html'));
+    res.render("about");
 });
 
 app.get('/lego/sets', (req, res) => {
     try {
         const allSets = legoData.getAllSets();
-        res.json(allSets);
+        res.render("sets", { sets: allSets });
     } catch (error) {
         res.status(404).send("Error fetching all sets: " + error.message);
     }
@@ -65,12 +66,12 @@ app.get('/lego/sets/:set_num', async (req, res) => {
     try {
         const set = legoData.getSetByNum(req.params.set_num);
         if (set) {
-            res.json(set);
+            res.render('set',{set});
         } else {
-            res.status(404).send("Lego set not found.");
+            res.status(404).render("404",{message: "Lego set not found."});
         }
     } catch (error) {
-        res.status(404).send("Error finding the set.");
+        res.status(404).render("404",{message:"Error finding the set."});
     }
 });
 
