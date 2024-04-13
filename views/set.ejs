@@ -7,7 +7,7 @@
     <title><%= set.name %> - LEGO Set</title>
 </head>
 <body>
-    <%- include('partials/navbar', { page: '' }) %>
+    <%- include('partials/navbar', { page: '',activeTheme: set.theme }) %>
 
     <div class="hero min-h-screen" style="background-image: url('<%= set.img_url %>');">
         <div class="hero-overlay bg-opacity-60"></div>
@@ -24,9 +24,11 @@
         <div class="text-center mt-4">
             <h2 class="text-3xl font-bold"><%= set.name %></h2>
             <p>Year: <%= set.year %></p>
-            <p>Theme: <%= set.theme %></p>
+            <p>Theme: <%= set.theme_id %></p>
             <p>Number of Parts: <%= set.num_parts %></p>
+            <a href="/lego/editSet/<%= set.set_num %>" class="btn btn-success">Edit</a>
             <div id="quote"></div>
+            <a href="/lego/deleteSet/<%= set.set_num %>" class="btn btn-error">Delete Set</a>
             <a href="#" onclick="history.back(); return false;" class="btn btn-primary">Back</a>
         </div>
     </div>
