@@ -4,6 +4,10 @@ const Sequelize = require('sequelize');
 const setData = require("../data/setData.json");
 const themeData = require("../data/themeData.json");
 
+mongoose.connect(
+    "mongodb+srv://suryansh1:1pXVCP22wP3J8R3U@cluster0.rcv8v5t.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+  );
+
 const sequelize = new Sequelize(process.env.DB_DATABASE, process.env.DB_USER, process.env.DB_PASSWORD, {
     host: process.env.DB_HOST,
     dialect: 'postgres',
